@@ -6,7 +6,7 @@ import { useVirtualList } from '@vueuse/core'
 const index: Ref = ref()
 const search = ref('')
 
-const allItems = Array.from(Array(99999).keys())
+const allItems = Array.from(Array(3).keys())
   .map(i => ({
     height: i % 2 === 0 ? 42 : 84,
     size: i % 2 === 0 ? 'small' : 'large',
@@ -20,7 +20,7 @@ const { list, containerProps, wrapperProps, scrollTo } = useVirtualList(
   filteredItems,
   {
     itemHeight: i => (filteredItems.value[i].height + 8),
-    overscan: 10,
+    overscan: 1,
   },
 )
 const handleScrollTo = () => {
